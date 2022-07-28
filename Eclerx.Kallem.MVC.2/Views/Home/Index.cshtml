@@ -1,0 +1,31 @@
+﻿@model Eclerx.Kallem.MVC._2.ViewModels.DetailsByGenreVM
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h2>Search Product By Category</h2>
+        </div>
+        <hr />
+
+        @using (Html.BeginForm("GetBooks", "Home", FormMethod.Get))
+        {
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Select a Category</label>
+                <div class="col-sm-3">
+                    @Html.DropDownList("Genre", Model.Genre, "--Select--", new { @class = "form-select" })
+                </div>
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-success">Search</button>
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.Partial("_BookDetailsPartial", Model)
+
+        </div>
+    </div>
+</div>

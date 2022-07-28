@@ -1,0 +1,55 @@
+﻿@using Eclerx.Kallem.MVC._2.Models
+@model Books
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Add New Book</h2>
+
+<hr />
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+                <div class="mb-2">
+                    @Html.LabelFor(p => p.ISBN)
+                    @Html.TextBoxFor(p => p.ISBN, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(p => p.ISBN)
+                </div>
+                <div class="mb-2">
+                    @Html.LabelFor(p => p.BookName)
+                    @Html.TextBoxFor(p => p.BookName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(p => p.BookName)
+                </div>
+                <div class="mb-2">
+                    @Html.LabelFor(p => p.Genre)
+                    @Html.TextBoxFor(p => p.Genre, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Genre)
+                </div>
+                <div class="mb-2">
+                    @Html.LabelFor(p => p.AuthorName)
+                    @Html.TextBoxFor(p => p.AuthorName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(p => p.AuthorName)
+                </div>
+
+                <div class="mb-2">
+                    @Html.LabelFor(p => p.PublishedDate)
+                    @Html.TextBoxFor(p => p.PublishedDate, new { @class = "form-control" })
+                    
+                    @Html.ValidationMessageFor(p => p.PublishedDate)
+                </div>
+
+                <div class="mb-2">
+                    <button type="submit" class="btn btn-outline-primary">Save</button>
+                    <button type="reset" class="btn btn-danger">Reset</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
